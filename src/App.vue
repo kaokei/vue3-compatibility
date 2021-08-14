@@ -1,16 +1,45 @@
 <template>
   <h1>Vue3 works on this device.</h1>
+  <div>
+    <div>
+      <span>refData.count: {{ refData.count }}</span>
+      <button type="button" @click="add1">测试ref功能</button>
+    </div>
+    <div>
+      <span>reactiveData.count: {{ reactiveData.count }}</span>
+      <button type="button" @click="add2">测试reactive功能</button>
+    </div>
+  </div>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
+import { ref, reactive } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
+  },
+  setup() {
+    const refData = ref({ count: 1 });
+    const reactiveData = reactive({ count: 1 });
+
+    const add1 = () => {
+      refData.value.count++;
+    };
+    const add2 = () => {
+      reactiveData.count++;
+    };
+
+    return {
+      refData,
+      reactiveData,
+      add1,
+      add2,
+    };
   },
 };
 </script>
