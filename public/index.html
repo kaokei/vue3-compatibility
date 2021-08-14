@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <script>
+        window.onerror = function (msg, url, lineNo, columnNo, error) {
+            console.log('window.onerror', msg, url, lineNo, columnNo, error);
+            var errorTip = document.getElementById('error-tip');
+            var str = '<div>message: ' + msg + '</div>'
+            str += '<div>url: ' + url + '</div>'
+            str += '<div>lineNo: ' + lineNo + '</div>'
+            str += '<div>columnNo: ' + columnNo + '</div>'
+            str += '<div>error: ' + error + '</div>'
+            errorTip.innerHTML = str;
+        };
+    </script>
+</head>
+
+<body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+                Please enable it to continue.</strong>
     </noscript>
+
+    <div id="error-tip"></div>
+
     <div id="app"></div>
     <!-- built files will be auto injected -->
-  </body>
+</body>
+
 </html>
