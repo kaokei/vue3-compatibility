@@ -29,10 +29,16 @@
                 Please enable it to continue.</strong>
     </noscript>
 
+    <div id="useragent"></div>
+
     <div id="error-tip"></div>
 
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <script>
+        document.getElementById('useragent').innerHTML = 'useragent: ' + navigator.userAgent;
+    </script>
 </body>
 
 </html>
