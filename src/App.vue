@@ -10,19 +10,17 @@
       <button type="button" @click="add2">测试reactive功能</button>
     </div>
   </div>
+  <div>
+      <a href="https://github.com/kaokei/vue3-compatibility">GitHub的项目地址</a>
+  </div>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
 import { ref, reactive } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
   setup() {
     const refData = ref({ count: 1 });
     const reactiveData = reactive({ count: 1 });
