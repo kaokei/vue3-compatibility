@@ -7,4 +7,5 @@ try {
   console.log("after create app");
 } catch (error) {
   console.log("catch create app error", error);
+  alert('catch error by createApp');
 }
